@@ -7,7 +7,7 @@ std::string str_toupper(const char *str)
 {
 	std::string s (str);
 
-	for (std::string::iterator it = s.begin(), end = s.end(); it != end; it++)
+	for (std::string::iterator it = s.begin(); it != s.end(); it++)
 		*it = std::toupper(*it);
 	return s;
 }

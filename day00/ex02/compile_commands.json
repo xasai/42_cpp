@@ -1,0 +1,40 @@
+[
+  {
+    "arguments": [
+      "/usr/bin/clang++",
+      "-c",
+      "-I.",
+      "-Wall",
+      "-Wextra",
+      "-Werror",
+      "-pedantic-errors",
+      "-std=c++98",
+      "-O3",
+      "-o",
+      ".obj/Account.o",
+      "Account.cpp"
+    ],
+    "directory": "/home/masai/Documents/42/cpp-pool/day00/ex02",
+    "file": "/home/masai/Documents/42/cpp-pool/day00/ex02/Account.cpp",
+    "output": "/home/masai/Documents/42/cpp-pool/day00/ex02/.obj/Account.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/clang++",
+      "-c",
+      "-I.",
+      "-Wall",
+      "-Wextra",
+      "-Werror",
+      "-pedantic-errors",
+      "-std=c++98",
+      "-O3",
+      "-o",
+      ".obj/tests.o",
+      "tests.cpp"
+    ],
+    "directory": "/home/masai/Documents/42/cpp-pool/day00/ex02",
+    "file": "/home/masai/Documents/42/cpp-pool/day00/ex02/tests.cpp",
+    "output": "/home/masai/Documents/42/cpp-pool/day00/ex02/.obj/tests.o"
+  }
+]
