@@ -1,16 +1,9 @@
 #include <iostream>
-#include <Zombie.hpp>
+#include "Zombie.hpp"
 
 
-void randomChump(std::string name) {
-	Zombie z = Zombie(name);
-	z.announce();
-}
-
-Zombie* newZombie(std::string name) { 
-	return new Zombie(name); 
-}
-
+Zombie* newZombie(std::string name);
+void randomChump(std::string name);
 
 void testStack() {
 	std::cout << "main.testStack entered" << std::endl;

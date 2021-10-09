@@ -10,7 +10,9 @@ class Zombie {
 
 		void 	announce();
 		
+		Zombie();
 		Zombie(std::string name);
+
 		~Zombie();
 
 	private: 
@@ -18,7 +20,6 @@ class Zombie {
 		std::string _name;
 };
 
-Zombie* newZombie(std::string name);
-void randomChump(std::string name);
+Zombie* zombieHorde(int n, std::string name);
 
 #endif // _ZOMBIE_HPP
