@@ -2,7 +2,7 @@
 #Take objdirs from sources dirs and mkdir them
 #Make debug build in different folder
 #Generate .d files and include them
-BIN := human 
+BIN := fixed 
 
 SRC ?= $(wildcard *.cpp) #FIXME
 
