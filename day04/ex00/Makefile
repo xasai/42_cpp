@@ -2,7 +2,7 @@
 #Take objdirs from sources dirs and mkdir them
 #Make debug build in different folder
 #Generate .d files and include them
-BIN := zombie 
+BIN := polymorphism 
 
 SRC ?= $(wildcard *.cpp) #FIXME
 
@@ -14,6 +14,8 @@ OBJ := $(addprefix $(OBJPATH), $(SRC:.cpp=.o))
 
 INC := -I.
 INC ?= -Iinclude/ #FIXME
+
+HPP = $(wildcard *.hpp)
 
 CXX := clang++
 CXXFLAGS := -Wall -Wextra -Werror -pedantic-errors -std=c++98
@@ -27,7 +29,7 @@ all: $(BIN)
 $(BIN): $(OBJPATH) $(OBJ)
 	$(CXX) $(OBJ) $(INC) $(CXXFLAGS) -o $@ $(LIBS) $(LDFLAGS)
 
-$(OBJPATH)%.o: %.cpp 
+$(OBJPATH)%.o: %.cpp $(HPP)
 	$(CXX) -c $< $(INC) $(CXXFLAGS) -o $@
 
 $(OBJPATH): 
