@@ -15,6 +15,27 @@ DiamondTrap::DiamondTrap(std::string name):
 DiamondTrap::~DiamondTrap() {
 	std::cout << "~DiamondTrap() called by " << _name  << std::endl;
 }
+ 
+DiamondTrap::DiamondTrap(const DiamondTrap & d) : ClapTrap(d), _name(d._name) {
+	std::cout << "~DiamondTrap() called by " << _name  << std::endl;
+}
+
+DiamondTrap DiamondTrap::operator = (const DiamondTrap & r) {
+	std::cout << "~DiamondTrap() called by " << _name  << std::endl;
+
+	if (this == &r) {
+		return *this;
+	}
+
+	_name = r._name;
+
+	setName(r.getName());
+	setHp(r.getHp());
+	setEp(r.getEp());
+	setDmg(r.getDmg());
+
+	return *this;
+}
 
 void DiamondTrap::whoAmI() {
 	std::cout << "Diamond trap's true name " << _name << std::endl;

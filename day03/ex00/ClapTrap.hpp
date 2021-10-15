@@ -7,13 +7,16 @@
 class ClapTrap {
 	public:
 		ClapTrap(std::string name);
+		ClapTrap(const ClapTrap & c);
 		~ClapTrap(); 
+		ClapTrap operator = (const ClapTrap & c);
+		
 
 		void attack(std::string const & target);	
 		void takeDamage(unsigned int amount);	
 		void beRepaired(unsigned int amount);	
 
-	private:
+	protected:
 		std::string _name;
 		int _hp;
 		int _ep;

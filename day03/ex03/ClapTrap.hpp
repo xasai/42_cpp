@@ -7,7 +7,10 @@
 class ClapTrap {
 	public:
 		ClapTrap(std::string name);
+		ClapTrap(const ClapTrap & c);
 		~ClapTrap();
+		ClapTrap operator = (const ClapTrap & c);
+
 
 		void attack(std::string const & target);	
 		void takeDamage(unsigned int amount);	
@@ -20,13 +23,18 @@ class ClapTrap {
 		int _dmg;
 
 	protected:
+		ClapTrap();
 		ClapTrap(std::string name, int hp, int ep, int dmg);
-		ClapTrap(){};
 
-		int getHp() {return this->_hp;};
-		int getEp() {return this->_ep;};
-		int getDmg() {return this->_dmg;};
-		std::string getName() {return this->_name;};
+		std::string getName() const;
+		int getHp() const;
+		int getEp() const;
+		int getDmg() const;
+
+		void setName(std::string ame);
+		void setHp(int hp);
+		void setEp(int ep);
+		void setDmg(int dmg);
 };
 
 #endif // __CLAP_TRAP_HPP

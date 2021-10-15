@@ -7,13 +7,13 @@
 
 class Dog: public Animal {
 	public:
-		Dog():_type("Dog"), _voice("bark bark") {std::cout << "Dog() called"<< std::endl;}
-		~Dog(){std::cout << "~Dog() called"<< std::endl;}
+		Dog();
+		~Dog();
 
-		void makeSound() const { std::cout << getType() << " " << getVoice() << std::endl; };
+		void makeSound();
 
-		const std::string getType() const { return _type; }
-		const std::string getVoice() const { return _voice; }
+		const std::string getType() const;
+		const std::string getVoice() const;
 
 	private:
 		const std::string _type;

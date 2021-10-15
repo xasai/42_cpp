@@ -2,11 +2,11 @@
 #include "DiamondTrap.hpp" 
 
 int main() {
-	DiamondTrap c("Frag John");
+	std::cout << "======================================" << std::endl;
+	DiamondTrap d = DiamondTrap("FIRST");
+	std::cout << "======================================" << std::endl;
+	std::cout << "              Assign" << std::endl;
+	DiamondTrap s = d;
 
-	c.attack("ahahah");
-	c.beRepaired(1337);
-	c.takeDamage(111);
-	c.highFivesGuys();
-	c.whoAmI();
+	s.whoAmI();
 }

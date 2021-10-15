@@ -3,7 +3,20 @@
 
 ClapTrap::ClapTrap(std::string name):_name(name),_hp(10),_ep(10),_dmg(0) {
 	std::cout << "ClapTrap(name=\""<< name <<"\") called" << std::endl;
-	(void)this->_ep; //mute unused;
+}
+
+ClapTrap::ClapTrap(const ClapTrap &c):_name(c._name),_hp(c._hp),_ep(c._ep),_dmg(c._dmg) {
+	std::cout << "ClapTrap(const ClapTrap & c) called" << std::endl;
+}
+
+ClapTrap ClapTrap::operator = (const ClapTrap &r) {
+	std::cout << "ClapTrap ClapTrap::operator = (const ClapTrap & c) called" << std::endl;
+
+	if (this == &r) {
+		return *this;
+	}
+	(void)_ep;
+	return *this;
 }
 
 ClapTrap::~ClapTrap() {

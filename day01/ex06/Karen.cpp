@@ -9,14 +9,16 @@ Karen::~Karen() {
 
 
 void Karen::complain(std::string level) {
-
 	for (int i = 0; i < 4; i++) {
-		if (levels[i]->compare(level) == 0) {
+		switch (levels[i]->compare(level))  {
+		case 0: 
 			(this->*memf[i])();
 			return ;
+		default:
+			continue;
 		}
 	}
-	
+
 	std::cout << "No such level " << level << std::endl;
 }
 

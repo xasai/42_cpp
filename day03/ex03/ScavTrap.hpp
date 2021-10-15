@@ -8,6 +8,8 @@
 class ScavTrap: virtual public ClapTrap {
 	public:
 		ScavTrap(std::string name);
+		ScavTrap(const ScavTrap & c);
+		ScavTrap operator = (const ScavTrap & c);
 		~ScavTrap();
 
 		void guardGate();
@@ -17,7 +19,7 @@ class ScavTrap: virtual public ClapTrap {
 		static const int DMG = 20;
 
 	protected:
-		ScavTrap(){};
+		ScavTrap();
 };
 
 #endif // __SCAV_TRAP_HPP

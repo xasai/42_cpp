@@ -7,13 +7,13 @@
 
 class Cat : public Animal {
 	public:
-		Cat():_type("Cat"), _voice("meow meow") {std::cout << "Cat() called"<< std::endl;};
-		~Cat(){std::cout << "~Cat() called"<< std::endl;};
+		Cat();
+		~Cat();
 
-		void makeSound() const { std::cout << getType() << " " << getVoice() << std::endl; };
+		void makeSound() const;
 
-		const std::string getType() const { return _type; }
-		const std::string getVoice() const { return _voice; }
+		const std::string getType() const;
+		const std::string getVoice() const;
 
 	private:
 		const std::string _type;

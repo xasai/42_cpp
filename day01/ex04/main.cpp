@@ -4,9 +4,9 @@
 #include <iostream>
 #include <string>
 
-bool _validArgs(int ac){
+bool _validArgs(int ac, char **av){
 	if (ac != 4) {
-		std::cout << "USAGE: ./replace filename str1 str2" << std::endl;
+		std::cout << "USAGE: " << av[0] << " filename str1 str2" << std::endl;
 		return EXIT_FAILURE;
 	}
 	return  EXIT_SUCCESS;
@@ -26,12 +26,19 @@ void replaceAll(std::string &line, std::string s1, std::string s2) {
 
 int main(int ac, char **av) {
 
-	if (_validArgs(ac))
+	if (_validArgs(ac, av))
 		return EXIT_FAILURE;
 	
 	const char *outFilenameSuffix = ".replace";
 
 	char *inFilename = av[1];
+
+	std::ifstream in(inFilename);
+	if (!in.is_open()) {
+		std::cout << "error openening " << av[1] << std::endl;
+		return EXIT_FAILURE;
+	}
+
 	char *outFilename = new char[std::strlen(av[1]) + std::strlen(outFilenameSuffix) + 1];
 	std::strcpy(outFilename, av[1]);
 	std::strcat(outFilename, outFilenameSuffix);
@@ -42,11 +49,7 @@ int main(int ac, char **av) {
 		return EXIT_FAILURE;
 	}
 
-	std::ifstream in(inFilename);
-	if (!in.is_open()) {
-		std::cout << "error openening " << av[1] << std::endl;
-		return EXIT_FAILURE;
-	}
+	delete []outFilename;
 
 	std::string line;
 	while (std::getline(in, line)) {

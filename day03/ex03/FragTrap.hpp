@@ -8,6 +8,8 @@
 class FragTrap: virtual public ClapTrap {
 	public:
 		FragTrap(std::string name);
+		FragTrap(const FragTrap & c);
+		FragTrap operator = (const FragTrap & c);
 		~FragTrap();
 		
 		void highFivesGuys();
@@ -17,8 +19,10 @@ class FragTrap: virtual public ClapTrap {
 		static const int DMG = 30;
 
 	protected:
-		FragTrap(){};
+		FragTrap();
 };
 
 #endif //  __FRAG_TRAP_HPP
+
+
 

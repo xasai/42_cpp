@@ -1,6 +1,10 @@
 #include <iostream>
 #include "ClapTrap.hpp"
 
+ClapTrap::ClapTrap() {
+	std::cout << "ClapTrap() called " << std::endl;
+}
+
 ClapTrap::ClapTrap(std::string name):_name(name),_hp(10),_ep(10),_dmg(0) {
 	std::cout << "ClapTrap(name=\""<< name << "\") called " << std::endl;
 }
@@ -11,9 +15,36 @@ ClapTrap::ClapTrap(std::string name, int hp, int ep, int dmg):_name(name),_hp(hp
 	std::cout << std::endl;
 }
 
+ClapTrap::ClapTrap(const ClapTrap &c):_name(c._name),_hp(c._hp),_ep(c._ep),_dmg(c._dmg) {
+	std::cout << "ClapTrap(const ClapTrap & c) called" << std::endl;
+}
+
+ClapTrap ClapTrap::operator = (const ClapTrap &r) {
+	std::cout << "ClapTrap ClapTrap::operator = (const ClapTrap & c) called" << std::endl;
+
+	if (this == &r) {
+		return *this;
+	}
+	setName(r.getName());
+	setHp(r.getHp());
+	setEp(r.getEp());
+	setDmg(r.getDmg());
+	return *this;
+}
+
 ClapTrap::~ClapTrap() {
 	std::cout << "~ClapTrap() called by " << this->_name << std::endl;
 }
+
+int ClapTrap::getHp() const   { return _hp; }
+int ClapTrap::getEp() const   {	return _ep; }
+int ClapTrap::getDmg() const  {	return _dmg;}
+std::string ClapTrap::getName() const { return _name; }
+
+void ClapTrap::setHp(int hp)   {_hp = hp;}
+void ClapTrap::setEp(int ep)   {_ep = ep;}
+void ClapTrap::setDmg(int dmg) {_dmg = dmg;}
+void ClapTrap::setName(std::string name){_name = name;}
 
 void ClapTrap::attack(std::string const & target) {
 	std::cout <<  "ClapTrap " <<  this->_name << " attack " << target;

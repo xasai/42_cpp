@@ -14,6 +14,7 @@ class Contact {
 		void		PrintRow(int id);
 					Contact();
 					~Contact();
+
 	private:
 		std::string Firstname;	
 		std::string Lastname;	

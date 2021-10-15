@@ -9,12 +9,12 @@
 class DiamondTrap: public ScavTrap, public FragTrap {
 	public:
 		DiamondTrap(std::string name);
+		DiamondTrap(const DiamondTrap & d);
+		DiamondTrap operator = (const DiamondTrap & d);
 		~DiamondTrap();
 		void whoAmI();
 		
 		void attack(std::string const & target);
-
-		std::string getName() { return this->_name; };
 
 	private:
 		std::string _name;
