@@ -43,5 +43,5 @@ void DiamondTrap::whoAmI() {
 }
 
 void DiamondTrap::attack(std::string const & target) {
-	this->FragTrap::attack(target);
+	this->ScavTrap::attack(target);
 }
