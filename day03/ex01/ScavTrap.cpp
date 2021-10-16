@@ -26,6 +26,12 @@ ScavTrap ScavTrap::operator = (const ScavTrap &r) {
 	return *this;
 }
 
+
+void ScavTrap::attack(std::string const & target) {
+	std::cout <<  "ScavTrap " <<  getName() << " attack " << target 
+				<< ", causing " << getDmg() << " points of damage!" << std::endl;
+}
+
 void ScavTrap::guardGate() {
 	std::cout << "ScavTrap " << getName() << " gate keeper mode entered" << std::endl;
 }

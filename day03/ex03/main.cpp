@@ -3,10 +3,11 @@
 
 int main() {
 	std::cout << "======================================" << std::endl;
-	DiamondTrap d = DiamondTrap("FIRST");
-	std::cout << "======================================" << std::endl;
-	std::cout << "              Assign" << std::endl;
-	DiamondTrap s = d;
+	DiamondTrap d = DiamondTrap("Vladimir");
 
-	s.whoAmI();
+	d.whoAmI();
+	d.attack("Putin");
+	d.beRepaired(10);
+	d.highFivesGuys();
+	d.guardGate();
 }

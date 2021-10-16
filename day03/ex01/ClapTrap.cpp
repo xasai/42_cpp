@@ -51,8 +51,8 @@ void ClapTrap::setEp(int ep)  {_ep = ep;}
 void ClapTrap::setDmg(int dmg) {_dmg = dmg;}
 
 void ClapTrap::attack(std::string const & target) {
-	std::cout <<  "ClapTrap " <<  this->_name << " attack " << target;
-	std::cout << ", causing " << this->_dmg << " points of damage!" << std::endl;
+	std::cout <<  "ClapTrap " <<  this->_name << " attack " << target << 
+		", causing " << this->_dmg << " points of damage!" << std::endl;
 }
 
 void ClapTrap::takeDamage(unsigned int amount) {

@@ -12,11 +12,13 @@ class ScavTrap: virtual public ClapTrap {
 		ScavTrap operator = (const ScavTrap & c);
 		~ScavTrap();
 
+		void attack(std::string const & target);	
 		void guardGate();
 
 		static const int HP = 100;
 		static const int EP = 50;
 		static const int DMG = 20;
+
 
 	protected:
 		ScavTrap();
