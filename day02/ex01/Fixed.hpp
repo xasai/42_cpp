@@ -20,7 +20,7 @@ class Fixed {
 		int	  toInt() const; 
 		float toFloat(void) const;
 
-		Fixed& operator = (const Fixed& obj);
+		Fixed & operator = (const Fixed& obj);
 		
 	private:
 
