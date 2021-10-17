@@ -4,10 +4,6 @@
 
 Animal::~Animal() {}
 
-void Animal::makeSound() const {
-    std::cout << _voice << std::endl;
-}
-
 std::string Animal::getName() const {return _name;}
 std::string Animal::getType() const {return _type;}
 std::string Animal::getVoice() const { return _voice; }
