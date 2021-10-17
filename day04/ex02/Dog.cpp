@@ -2,17 +2,27 @@
 #include "Animal.hpp" 
 #include "Dog.hpp"
 
-Dog::Dog():Animal("noname", "Dog", "bark bark") {
+Dog::Dog() {
+	setName("noname");
+	setType("Dog");
+	setName("bark bark");
 	std::cout << "Dog() called" << std::endl;
 }
 
-Dog::Dog(const std::string &name):Animal(name, "Dog", "bark bark") {
+Dog::Dog(const std::string &name) {
 	std::cout << "Dog(name=" << name << ") called" << std::endl;
+
+	setName(name);
+	setType("Dog");
+	setName("bark bark");
 	_brain = new Brain(name);
 }
 
-Dog::Dog(const Dog & d):Animal(d._name, d._type, d._voice) { //  
+Dog::Dog(const Dog & d) {
 	std::cout << "Dog(const Dog & c) called" << std::endl;
+	setName(d._name);
+	setType(d._type);
+	setName(d._voice);
 	delete _brain;
 	this->_brain  = new Brain(*d._brain);
 }
@@ -21,9 +31,9 @@ Dog Dog::operator = (const Dog & rhs) {
 	std::cout << "Dog operator = called" << std::endl;
 	if (this == &rhs)
 		return *this;
-	this->_name = rhs._name;
-	this->_type = rhs._type;
-	this->_voice = rhs._voice;
+	setName(rhs._name);
+	setType(rhs._type);
+	setVoice(rhs._voice);
 	delete _brain;
 	this->_brain  = new Brain(*rhs._brain);
 	return *this;
@@ -40,6 +50,6 @@ void Dog::makeSound() const {
 	std::cout << _voice << std::endl;
 }
 
-void Dog::checkInitIdea() {
+void Dog::checkInitIdea() const {
 	_brain->checkInitIdea();
 }

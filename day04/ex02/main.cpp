@@ -14,6 +14,9 @@ int main() {
 	const int N = NN;
 	Animal *animals[N];
 
+	//AN ERROR IS HERE
+	//Animal n = Animal();
+
 	std::cout << "----------------------------------------------------------------" << std::endl;
 	std::cout << "                        Dogs" << std::endl;
 	for (int i = 0; i < N / 2; i++) {
@@ -45,8 +48,8 @@ int main() {
 	std::cout << "                        Deep copy assignation (operator =)" << std::endl << std::endl;
 
 	Cat *cOrig  = static_cast<Cat*>(animals[N - 1]);
-	Cat cCopy = Cat("tmp"); 
-	cCopy = *cOrig; 
+	Cat cCopy =  Cat("tmp"); 
+	cCopy =  *cOrig; 
 
 	std::cout << std::endl;
 	std::cout << "Cat origin" << std::endl; 
