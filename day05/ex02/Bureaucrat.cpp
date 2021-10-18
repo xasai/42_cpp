@@ -39,6 +39,11 @@ Bureaucrat Bureaucrat::operator = (const Bureaucrat & rhs) {
 const std::string Bureaucrat::getName() const {return _name;}
 int Bureaucrat::getGrade() const {return _grade;}
 
+
+void Bureaucrat::signForm(Form & f) {
+    f.beSigned(*this);
+}
+
 void Bureaucrat::incGrade() {
     if (_grade - 1 == 0)
         throw Bureaucrat::GradeTooHighException();
@@ -49,6 +54,17 @@ void Bureaucrat::decGrade() {
     if (_grade + 1 >= 151)
         throw Bureaucrat::GradeTooLowException();
     _grade++;
+}
+
+bool Bureaucrat::executeForm(const Form & form) {
+    try {
+        form.execute(*this);
+    } catch (std::exception & e) {
+        std::cout << "Form execute failed: " <<  e.what() << std::endl;
+        return true;
+    }
+    std::cout << "Form execute succeed" << std::endl;
+    return false;
 }
 
 std::ostream & operator << (std::ostream & out, const Bureaucrat & b) {

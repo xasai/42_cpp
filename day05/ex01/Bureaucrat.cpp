@@ -39,6 +39,11 @@ Bureaucrat Bureaucrat::operator = (const Bureaucrat & rhs) {
 const std::string Bureaucrat::getName() const {return _name;}
 int Bureaucrat::getGrade() const {return _grade;}
 
+
+void Bureaucrat::signForm(Form & f) {
+    f.beSigned(*this);
+}
+
 void Bureaucrat::incGrade() {
     if (_grade - 1 == 0)
         throw Bureaucrat::GradeTooHighException();
