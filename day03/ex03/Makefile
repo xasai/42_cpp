@@ -23,7 +23,7 @@ INC ?= -Iinclude/ #FIXME
 HPP = $(wildcard *.hpp)
 
 CXX := clang++
-CXXFLAGS := -Wall -Wextra -Werror -pedantic-errors -std=c++98 -Wshadow
+CXXFLAGS := -Wall -Wextra -Werror -pedantic-errors -std=c++98
 
 LDFLAGS := 
 LIBS := 
@@ -55,5 +55,9 @@ debug: CPPFLAGS += -D_DEBUG
 debug: CXXFLAGS += -g3
 debug: $(BIN)
 
+############ project to project stuff ###########
 cp_make:
 	bash -c "find day* -name ex* | xargs -n 1 cp Makefile"
+
+valgrind: 
+	valgrind --leak-check=full ./test

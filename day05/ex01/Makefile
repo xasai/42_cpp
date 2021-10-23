@@ -58,3 +58,6 @@ debug: $(BIN)
 ############ project to project stuff ###########
 cp_make:
 	bash -c "find day* -name ex* | xargs -n 1 cp Makefile"
+
+valgrind: 
+	valgrind --leak-check=full ./test

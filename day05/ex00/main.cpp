@@ -18,5 +18,5 @@ int main () {
         std::cout << e.what() << std::endl;
     }
 
-    std::cout << Bureaucrat("Ilya", 151) << std::endl;
+    Bureaucrat("Danil", 1);
 }
