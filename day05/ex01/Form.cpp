@@ -47,7 +47,11 @@ bool Form::isSigned() const {return _signed; }
 int Form::getMinSignGrade() const { return _minSignGrade; }
 int Form::getMinExecGrade() const { return _minExecGrade; }
 
+
 std::ostream & operator << (std::ostream & out, const Form & f) {
-    out << "form: <" << f.getName() << "> signed:" << f.isSigned() << " exec: " << f.getMinExecGrade() << " sign:" << f.getMinSignGrade();
+    out << "<" << f.getName() 
+        << "> | " << (f.isSigned() ? "SIGNED" : "NOT SIGNED")
+        << " | sign: " << f.getMinSignGrade()  
+        << " | exec: " << f.getMinExecGrade();
     return out;
 }

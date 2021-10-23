@@ -4,11 +4,11 @@ PresidentialPardonForm::PresidentialPardonForm() : Form() {
 }
 
 PresidentialPardonForm::PresidentialPardonForm(const std::string & target):
-    Form("PresidentialPardonForm", target, PresidentialPardonForm::_minExecGrade, PresidentialPardonForm::_minSignGrade) {
+    Form("PresidentialPardonForm", target, PresidentialPardonForm::_minSignGrade, PresidentialPardonForm::_minExecGrade) {
 }
 
 PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm & rhs):
-    Form("PresidentialPardonForm", rhs._target, rhs._minExecGrade, rhs._minSignGrade) {
+    Form("PresidentialPardonForm", rhs._target, rhs._minSignGrade, rhs._minExecGrade) {
     _signed = rhs._signed;
 }
 
@@ -23,18 +23,13 @@ PresidentialPardonForm PresidentialPardonForm::operator = (const PresidentialPar
 }
 
 void PresidentialPardonForm::execute(const Bureaucrat & executor) const {
+
     if (!this->isSigned())
         throw FormNotSignedException();
-
-    int grade = executor.getGrade();
-    if (grade < getMinExecGrade())
+    if (getMinExecGrade() < executor.getGrade())
         throw GradeTooLowException(); 
 
     //Execution
-    std::cout << _target << " has been pardoned by Zafod Beeblebrox" << std::endl;
-}
 
-std::ostream & operator << (std::ostream & out, const PresidentialPardonForm & f) {
-    out << "form: <" << f.getName() << "> signed:" << f.isSigned() << " exec: " << f.getMinExecGrade() << " sign:" << f.getMinSignGrade();
-    return out;
+    std::cout << getTarget() << " has been pardoned by Zafod Beeblebrox" << std::endl;
 }

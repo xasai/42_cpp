@@ -15,9 +15,10 @@ class Form {
         virtual ~Form();
 
         const std::string getName() const;
-        bool isSigned() const;
+        std::string getTarget() const;
         int getMinSignGrade() const;
         int getMinExecGrade() const;
+        bool isSigned() const;
 
         void beSigned(const Bureaucrat & b) ;
         virtual void execute(const Bureaucrat & executor) const = 0;

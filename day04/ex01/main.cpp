@@ -28,39 +28,40 @@ int main() {
 		std::cout << std::endl;
 	}
 	std::cout << "----------------------------------------------------------------" << std::endl;
-	std::cout << "                        Deep copy copy-constructor" << std::endl << std::endl;
+	std::cout << "                  Deep copy copy-constructor" << std::endl << std::endl;
 
 	Dog *dOrig  = static_cast<Dog*>(animals[0]);
 	Dog dCopy(*dOrig);
 
 	std::cout << std::endl;
-	std::cout << "Original dog brain : " << std::endl;
+	std::cout << "ORIGIN" << std::endl;
 	dOrig->checkInitIdea(); 
 
 	std::cout << std::endl;
-	std::cout << "Dog copy" << std::endl; 
+	std::cout << "COPY" << std::endl; 
 	dCopy.checkInitIdea(); 
 
 	std::cout << "----------------------------------------------------------------" << std::endl;
-	std::cout << "                        Deep copy assignation (operator =)" << std::endl << std::endl;
+	std::cout << "                 Deep copy assignation (operator =)" << std::endl << std::endl;
 
 	Cat *cOrig  = static_cast<Cat*>(animals[N - 1]);
 	Cat cCopy = Cat("tmp"); 
 	cCopy = *cOrig; 
 
 	std::cout << std::endl;
-	std::cout << "Cat origin" << std::endl; 
+	std::cout << "ORIGIN" << std::endl;
 	cOrig->checkInitIdea(); 
 
 	std::cout << std::endl;
-	std::cout << "Cat copy" << std::endl; 
+	std::cout << "COPY" << std::endl; 
 	cCopy.checkInitIdea(); 
 
 	std::cout << "----------------------------------------------------------------" << std::endl;
-	std::cout << "                        Destruct heap array" << std::endl;
+	std::cout << "                   Destruct heap array" << std::endl;
 	for (int i = 0; i < N; i++) {
 		std::cout << std::endl;
 		delete animals[i];
 	}
 	std::cout << "----------------------------------------------------------------" << std::endl;
+	std::cout << "                   Destruct stack objects" << std::endl;
 }

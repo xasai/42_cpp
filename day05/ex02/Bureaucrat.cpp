@@ -5,7 +5,6 @@
 Bureaucrat::Bureaucrat() {}
 
 Bureaucrat::Bureaucrat(const std::string & name, const int grade):_name(name) {
-    std::cout << "Bureaucrat::Bureaucrat(const std::string & name):_name(name) " << std::endl;
     if (grade > 150)
         throw Bureaucrat::GradeTooLowException();
     if (grade < 1)
@@ -20,13 +19,9 @@ Bureaucrat::Bureaucrat(const Bureaucrat & b) {
 }
 
 Bureaucrat::~Bureaucrat() {
-    std::cout << "Bureaucrat::~Bureaucrat()" << std::endl;
 }
 
-
 Bureaucrat Bureaucrat::operator = (const Bureaucrat & rhs) {
-    std::cout << "Bureaucrat::Bureaucrat(const Bureaucrat & b)" << std::endl;
-
     if (this == &rhs) {
         return *this;
     }
@@ -38,11 +33,6 @@ Bureaucrat Bureaucrat::operator = (const Bureaucrat & rhs) {
 
 const std::string Bureaucrat::getName() const {return _name;}
 int Bureaucrat::getGrade() const {return _grade;}
-
-
-void Bureaucrat::signForm(Form & f) {
-    f.beSigned(*this);
-}
 
 void Bureaucrat::incGrade() {
     if (_grade - 1 == 0)
@@ -56,15 +46,20 @@ void Bureaucrat::decGrade() {
     _grade++;
 }
 
+void Bureaucrat::signForm(Form & f) {
+    f.beSigned(*this);
+}
+
 bool Bureaucrat::executeForm(const Form & form) {
     try {
         form.execute(*this);
-    } catch (std::exception & e) {
-        std::cout << "Form execute failed: " <<  e.what() << std::endl;
+    	std::cout << "Form <" << form.getName() << "> execution succeed" << std::endl;
+    	return false;
+    } 
+	catch (std::exception & e) {
+    	std::cout << "Form <" << form.getName() << "> execution failed: " <<  e.what() << std::endl;
         return true;
     }
-    std::cout << "Form execute succeed" << std::endl;
-    return false;
 }
 
 std::ostream & operator << (std::ostream & out, const Bureaucrat & b) {

@@ -26,6 +26,10 @@ Character::Character(const Character & c) {
 
 Character::~Character() {
     std::cout << "Character::~Character() called" << std::endl;
+	for (int i = 0; i < 4; i++) {
+		if (_materias[i])
+			delete _materias[i];
+	}
 }
 
 Character Character::operator = (const Character & rhs) {

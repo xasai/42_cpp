@@ -5,14 +5,22 @@
 
 class WrongAnimal {
 	public:
-		const std::string getType() const {return "???";};
-		void makeSound() const {std::cout << getType() << " ??? ??? " << std::endl;};
+		const std::string getType() const {
+			return "???";
+		}
+		void makeSound() const {
+			std::cout << getType() << " ??? ??? " << std::endl;
+		}
 };
 
 class WrongCat: public WrongAnimal {
 	public:
-		const std::string getType() const {return "WrongDog";};
-		void makeSound() const {std::cout << getType() << " bark bark"<< std::endl;};
+		const std::string getType() const {
+			return "WrongCat";
+		}
+		void makeSound() const {
+			std::cout << getType() << " bark bark"<< std::endl;
+		}
 };
 
 int main() {

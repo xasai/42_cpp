@@ -35,20 +35,27 @@ Form::Form(const Form & rhs):
 Form::~Form() {
 }
 
+
 void Form::beSigned(const Bureaucrat & b) {
     if (this->isSigned())
         return;
-    if (_minSignGrade > b.getGrade())
-        throw GradeTooHighException();
+    if (getMinSignGrade() < b.getGrade())
+        throw GradeTooLowException();
     _signed = true;
+	std::cout << b << " successfully signed" << std::endl;
 }
 
 const std::string Form::getName() const { return _name; }
+std::string Form::getTarget() const { return _target; }
 bool Form::isSigned() const {return _signed; }
 int Form::getMinSignGrade() const { return _minSignGrade; }
 int Form::getMinExecGrade() const { return _minExecGrade; }
 
 std::ostream & operator << (std::ostream & out, const Form & f) {
-    out << "form: <" << f.getName() << "> signed:" << f.isSigned() << " exec: " << f.getMinExecGrade() << " sign:" << f.getMinSignGrade();
+    out << "<" << f.getName() 
+        << "> target: " << f.getTarget()
+        << " | " << (f.isSigned() ? "SIGNED" : "NOT SIGNED")
+        << " | sign: " << f.getMinSignGrade()  
+        << " | exec: " << f.getMinExecGrade();
     return out;
 }

@@ -55,5 +55,6 @@ debug: CPPFLAGS += -D_DEBUG
 debug: CXXFLAGS += -g3
 debug: $(BIN)
 
+############ project to project stuff ###########
 cp_make:
 	bash -c "find day* -name ex* | xargs -n 1 cp Makefile"

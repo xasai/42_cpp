@@ -66,4 +66,5 @@ int main() {
 		delete animals[i];
 	}
 	std::cout << "----------------------------------------------------------------" << std::endl;
+	std::cout << "                        Destruct stack objects" << std::endl;
 }
