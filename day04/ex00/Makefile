@@ -4,7 +4,6 @@
 # - Make debug build in different sub .obj folder
 # - Generate  .d files whith -MMD and include them
 # - build source files independetly they stay in src/ or in root of project
-
 BIN := test 
 
 
@@ -58,6 +57,9 @@ debug: $(BIN)
 ############ project to project stuff ###########
 cp_make:
 	bash -c "find day* -name ex* | xargs -n 1 cp Makefile"
+
+allclean:
+	bash -c "find day* -name ex* | xargs -n 1 make fclean -C"
 
 valgrind: 
 	valgrind --leak-check=full ./test

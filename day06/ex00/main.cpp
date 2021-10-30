@@ -7,7 +7,6 @@
 #include <cstring>
 #include <cstdlib>
 #include <cmath>
-
 #define QUOAT '\''
 
 bool isArithmeticStr(std::string & s) {
@@ -84,9 +83,7 @@ int main(int argc, char **argv) {
 		return EXIT_SUCCESS;
 	}
 		
-	if (std::isprint(c)
-	 	&&	std::numeric_limits<char>::min() < c
-		&&  std::numeric_limits<char>::max() < c)
+	if (std::isprint(c))
 		std::cout << "char: " << QUOAT << c << QUOAT << std::endl;
 	else if (isascii(c))
 		std::cout << "char: Non displayable" << std::endl;
